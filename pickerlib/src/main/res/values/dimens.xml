@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottomLeft">10dp</dimen>
+    <dimen name="choiceAlbumMargin">5dp</dimen>
+    <dimen name="bottomHeight">55dp</dimen>
+    <dimen name="popupMarginTop">60dp</dimen>
+    <dimen name="albumSize">80dp</dimen>
+    <dimen name="albumTextMargin">10dp</dimen>
+    <dimen name="albumItemPadding">5dp</dimen>
+    <dimen name="albumFontSize">18sp</dimen>
+</resources>

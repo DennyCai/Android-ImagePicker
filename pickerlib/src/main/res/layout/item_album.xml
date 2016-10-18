@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/albumItemPadding">
+
+    <ImageView
+        android:id="@+id/album_iv"
+        android:layout_width="@dimen/albumSize"
+        android:layout_height="@dimen/albumSize"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/album_name"
+        android:paddingLeft="@dimen/albumTextMargin"
+        android:layout_marginLeft="@dimen/albumSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/albumFontSize"
+        android:layout_gravity="center_vertical"
+        tools:text="item"/>
+
+    <TextView
+        android:id="@+id/picNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/albumTextMargin"
+        android:layout_marginLeft="@dimen/albumSize"
+        tools:text="0"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="@dimen/albumTextMargin"
+        android:layout_gravity="bottom"/>
+
+    <RadioButton
+        android:id="@+id/album_rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"/>
+
+</FrameLayout>
