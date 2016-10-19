@@ -14,6 +14,9 @@ Download
 ```groovy
 compile 'com.dennycai:Android-ImagePicker:0.5.0'
 ```
+#### Eclipse
+![go home](http://null)
+
 Usage
 --
 
