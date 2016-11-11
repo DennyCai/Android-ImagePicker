@@ -1,1 +1,1 @@
-include ':app', ':AppImagePicker', ':pickerlib'
+include ':app', ':Android-ImagePicker'
