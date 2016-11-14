@@ -67,6 +67,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/bintrayv2.gradle'
+//apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/bintrayv2.gradle'
 

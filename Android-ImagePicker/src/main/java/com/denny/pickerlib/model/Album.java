@@ -2,34 +2,32 @@ package com.denny.pickerlib.model;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Cai on 2016/10/12.
  */
 public class Album {
-    private String firstPicture;
+    private List<String> pictures;
     private Bitmap firstPictureBmp;
     private String albumPath;
     private String albumName;
-    private int number = 1;
 
-    public int getPictureNumber() {
-        return number;
+    public Album() {
+        pictures = new ArrayList<>();
     }
 
-    public void setPictureNumber(int number) {
-        this.number = number;
+    public List<String> getPictures() {
+        return pictures;
     }
 
-    public void incrementPicture(){
-        number++;
+    public void setPictures(List<String> pictures) {
+        this.pictures = pictures;
     }
 
-    public String getFirstPicture() {
-        return firstPicture;
-    }
-
-    public void setFirstPicture(String firstPicture) {
-        this.firstPicture = firstPicture;
+    public void addPicture(String path) {
+        pictures.add(path);
     }
 
     public String getAlbumPath() {
@@ -50,7 +48,7 @@ public class Album {
 
     @Override
     public boolean equals(Object obj) {
-        return obj!=null&&obj instanceof Album&&((Album)obj).getAlbumPath().equals(albumPath)&&((Album)obj).getAlbumName().equals(albumName);
+        return obj != null && obj instanceof Album && ((Album) obj).getAlbumPath().equals(albumPath) && ((Album) obj).getAlbumName().equals(albumName);
     }
 
     public Bitmap getFirstPictureBmp() {
@@ -59,5 +57,9 @@ public class Album {
 
     public void setFirstPictureBmp(Bitmap firstPictureBmp) {
         this.firstPictureBmp = firstPictureBmp;
+    }
+
+    public int getPicturesNumber() {
+        return pictures.size();
     }
 }

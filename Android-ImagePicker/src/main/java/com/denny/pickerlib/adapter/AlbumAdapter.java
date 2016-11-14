@@ -2,7 +2,6 @@ package com.denny.pickerlib.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
 import com.denny.pickerlib.model.Album;
 
@@ -18,13 +17,22 @@ public class AlbumAdapter extends BaseListAdpater<Album> {
     }
 
     @Override
-    protected void onBindView(ViewHolder holder, Album source, int position) {
-        AlbumHolder albumHolder = (AlbumHolder) holder;
-        
+    protected void onBindView(ViewHolder holder, final Album album, final int position) {
+        final AlbumHolder albumHolder = (AlbumHolder) holder;
+        albumHolder.albumName.setText(album.getAlbumName());
+        if(position>0) {
+            albumHolder.picNumber.setText(album.getPicturesNumber() + "张");
+        } else {
+            albumHolder.picNumber.setText("");
+        }
+        albumHolder.albumImage.setImageBitmap(album.getFirstPictureBmp());
+        albumHolder.setChecked(isChecked(position));
+
     }
 
     @Override
-    protected ViewHolder onNewView(ViewGroup parent) {
+    protected ViewHolder onNewView(ViewGroup parent, int position) {
+        final AlbumHolder albumHolder = new AlbumHolder(parent);
         return new AlbumHolder(parent);
     }
 }

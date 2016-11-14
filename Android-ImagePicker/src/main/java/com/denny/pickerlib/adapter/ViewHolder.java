@@ -8,8 +8,17 @@ import android.view.View;
 public class ViewHolder {
 
     protected View itemView;
+    private int mPos;
 
     public ViewHolder(View item){
-        item = item;
+        itemView = item;
+    }
+
+    public void setPosition(int pos){
+        mPos = pos;
+    }
+
+    public int getPosition() {
+        return mPos;
     }
 }

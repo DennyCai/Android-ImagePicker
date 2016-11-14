@@ -6,31 +6,35 @@
     <GridView
         android:id="@+id/photoWall"
         android:numColumns="3"
+        android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <FrameLayout
+        android:id="@+id/bottomLayout"
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottomHeight"
         android:background="@color/bottomColor">
 
-        <Button
+        <TextView
             android:id="@+id/choiceAlbum"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center|center_vertical"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/bottomLeft"
             android:layout_marginTop="@dimen/choiceAlbumMargin"
             android:layout_marginBottom="@dimen/choiceAlbumMargin"
+            android:clickable="true"
+            android:textColor="@color/text_color"
             android:text="@string/choiceAlbum"/>
 
         <Button
             android:id="@+id/pick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|center_vertical"
             android:layout_marginRight="@dimen/bottomLeft"
             android:layout_marginTop="@dimen/choiceAlbumMargin"
             android:layout_marginBottom="@dimen/choiceAlbumMargin"

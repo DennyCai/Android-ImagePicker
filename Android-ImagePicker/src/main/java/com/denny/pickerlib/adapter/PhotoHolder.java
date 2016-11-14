@@ -23,6 +23,15 @@ public class PhotoHolder extends ViewHolder {
         box = (CheckBox) itemView.findViewById(R.id.checkBox);
     }
 
+    public void toggle(){
+        box.toggle();
+        if(box.isChecked()){
+            imageView.setColorFilter(Color.parseColor("#55696969"));
+        }else{
+            imageView.setColorFilter(null);
+        }
+    }
+
     public void setChecked(boolean checked){
         box.setChecked(checked);
         if(checked){

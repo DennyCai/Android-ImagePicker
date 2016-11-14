@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import com.denny.pickerlib.support.LruCache;
+import com.denny.pickerlib.utils.BitmapUtils;
+
 import android.widget.ImageView;
 
 import java.util.concurrent.ExecutorService;
@@ -32,6 +34,11 @@ public class ImageLoader {
                 return value.getRowBytes()*value.getHeight();
             }
         };
+    }
+
+    public static void reset(){
+        THREAD_POLL.shutdownNow();
+        THREAD_POLL = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()>>1);
     }
 
     public static void destroy(){
@@ -70,19 +77,7 @@ public class ImageLoader {
         THREAD_POLL.submit(new Runnable() {
             @Override
             public void run() {
-                BitmapFactory.Options opt = new BitmapFactory.Options();
-                opt.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(key,opt);
-
-                int simpleScale =1;
-                while(Math.max(opt.outWidth,opt.outHeight)>maxSize) {
-                    simpleScale <<= 1;
-                    opt.outWidth>>=1;
-                    opt.outHeight>>=1;
-                }
-                opt.inJustDecodeBounds = false;
-                opt.inSampleSize = simpleScale;
-                final Bitmap real = BitmapFactory.decodeFile(key,opt);
+                final Bitmap real = BitmapUtils.loadBitmap(key,maxSize);
                 save(key,real);
                 MAIN_HANDLER.post(new Runnable() {
                     @Override

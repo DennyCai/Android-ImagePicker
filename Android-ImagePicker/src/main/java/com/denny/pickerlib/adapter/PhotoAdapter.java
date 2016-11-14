@@ -1,13 +1,7 @@
 package com.denny.pickerlib.adapter;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.GridView;
-import android.widget.ListView;
 
 import java.util.List;
 
@@ -24,25 +18,7 @@ public class PhotoAdapter extends BaseListAdpater<String> {
         super(data);
     }
 
-
-    public PhotoHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
-        final PhotoHolder holder = new PhotoHolder(parent);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-        holder.box.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-        return holder;
-    }
-
-
-
-    public void onBindViewHolder(PhotoHolder holder, String imageFileUri, int position) {
+    public void onBindViewHolder(final PhotoHolder holder, String imageFileUri,int position) {
         ImageLoader.loadImage(imageFileUri,
                 holder.imageView, mMaxSize,
                 android.R.drawable.sym_def_app_icon);
@@ -55,7 +31,7 @@ public class PhotoAdapter extends BaseListAdpater<String> {
     }
 
     @Override
-    protected ViewHolder onNewView(ViewGroup parent) {
+    protected ViewHolder onNewView(ViewGroup parent, int position) {
         return new PhotoHolder(parent);
     }
 

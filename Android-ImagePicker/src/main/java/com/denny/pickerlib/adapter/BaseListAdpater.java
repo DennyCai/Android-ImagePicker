@@ -14,19 +14,23 @@ import java.util.List;
 public abstract class BaseListAdpater<T> extends BaseAdapter implements IndexCheckAdapter {
 
     private List<T> mData;
-    private AbsListView mAbsView;
+    protected AbsListView mAbsView;
 
     public BaseListAdpater(List<T> data){
         mData = data;
     }
 
-    public void setToAbsListView(AbsListView view){
+    public BaseListAdpater<T> setToAbsListView(AbsListView view){
         view.setAdapter(this);
         mAbsView = view;
+        return this;
     }
 
     @Override
     public boolean isChecked(int position) {
+        if(mAbsView==null||mAbsView.getCheckedItemPositions()==null) {
+            return false;
+        }
         return mAbsView.getCheckedItemPositions().get(position);
     }
 
@@ -49,17 +53,24 @@ public abstract class BaseListAdpater<T> extends BaseAdapter implements IndexChe
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if(convertView==null){
-            holder = onNewView(parent);
+            holder = onNewView(parent,position);
             convertView = holder.itemView;
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
+        holder.setPosition(position);
         onBindView(holder,mData.get(position),position);
-        return null;
+        return convertView;
     }
 
     protected abstract void onBindView(ViewHolder holder, T source, int position);
 
-    protected abstract ViewHolder onNewView(ViewGroup parent);
+    protected abstract ViewHolder onNewView(ViewGroup parent, int position);
+
+    public void setDatas(List<T> newData) {
+        mData.clear();
+        mData.addAll(newData);
+        notifyDataSetChanged();
+    }
 }
