@@ -4,6 +4,8 @@
 
 Imitation Wechat pick images.
 
+[Less Dependencies](https://github.com/DennyCai/Android-ImagePicker/tree/PickImage-Light)
+
 ScreenShot
 --
 ![](https://null)
@@ -15,7 +17,7 @@ Download
 compile 'com.dennycai:Android-ImagePicker:0.5.0'
 ```
 #### Eclipse
-![go home](http://null)
+![go home](https://github.com/DennyCai/Android-ImagePicker/blob/PickImage-Light/screenshot/drunk.jpg)
 
 Usage
 --
