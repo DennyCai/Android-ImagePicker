@@ -45,11 +45,11 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'android-imagepicker'
+    bintrayName = 'android-imagepicker-light'
 
     publishedGroupId = 'com.denny'
-    libraryName = 'Android-ImagePicker'
-    artifact = 'Android-ImagePicker'
+    libraryName = 'Android-ImagePicker-Light'
+    artifact = 'Android-ImagePicker-Light'
 
     libraryDescription = 'Imitation Wechat pick images'
 
@@ -67,6 +67,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-//apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/installv1.gradle'
-//apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/bintrayv2.gradle'
+apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/DennyCai/JCenter/master/bintrayv2.gradle'
 
