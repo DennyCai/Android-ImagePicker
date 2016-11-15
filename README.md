@@ -20,6 +20,16 @@ compile 'com.dennycai:Android-ImagePicker-Light:0.6.0'
 Usage
 --
 
+### Choose multiple pictures
+```java
+    new Picker().multi(9).start(MainActivity.this);
+```
+
+### Pick one picture
+```java
+    new Picker().single().start(MainActivity.this);
+```
+
 Author
 --
 * Email: dennycai2015@gmail.com
