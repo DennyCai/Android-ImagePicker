@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BaseTheme" parent="android:Theme.Light">
+    <style name="PickerBaseTheme" parent="android:Theme.Light">
         <item name="android:windowTitleSize">@dimen/custom_title_height</item>
         <item name="android:windowTitleBackgroundStyle">@style/custom_bg_style</item>
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
