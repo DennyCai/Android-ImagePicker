@@ -1,5 +1,5 @@
 # Android-ImagePicker
-[ ![Download](https://api.bintray.com/packages/dennycai/maven/android-imagepicker/images/download.svg) ](https://bintray.com/dennycai/maven/android-imagepicker/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/dennycai/maven/android-imagepicker-light/images/download.svg) ](https://bintray.com/dennycai/maven/android-imagepicker-light/_latestVersion)
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
 
 Imitation Wechat pick images.
@@ -12,7 +12,7 @@ Download
 --
 #### Gradle
 ```groovy
-compile 'com.dennycai:Android-ImagePicker-Light:0.5.0'
+compile 'com.dennycai:Android-ImagePicker-Light:0.6.0'
 ```
 #### Eclipse
 ![go home](https://github.com/DennyCai/Android-ImagePicker/blob/PickImage-Light/screenshot/drunk.jpg)
