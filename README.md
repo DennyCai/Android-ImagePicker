@@ -15,7 +15,7 @@ Download
 compile 'com.dennycai:Android-ImagePicker-Light:0.5.0'
 ```
 #### Eclipse
-![go home](http://null)
+![go home](https://github.com/DennyCai/Android-ImagePicker/blob/PickImage-Light/screenshot/drunk.jpg)
 
 Usage
 --
