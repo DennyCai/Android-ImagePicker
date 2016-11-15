@@ -2,9 +2,7 @@ package com.denny.pickerlib;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 
 /**
  * Created by Cai on 2016/10/11.
@@ -50,7 +48,6 @@ public class Picker {
             return null;
     }
 
-    @VisibleForTesting
     public Intent getIntent(){
         return mIntent;
     }

@@ -7,6 +7,7 @@ import android.os.Looper;
 import com.denny.pickerlib.support.LruCache;
 import com.denny.pickerlib.utils.BitmapUtils;
 
+import android.support.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import java.util.concurrent.ExecutorService;
@@ -56,14 +57,17 @@ public class ImageLoader {
         Bitmap bitmap = loadBitmap(key, maxSize, new LoadedCallback() {
             @Override
             public void onLoaded(Bitmap bitmap) {
-                if(imageView.getTag(TAG_KEY).equals(key)&&bitmap!=null)
-                    imageView.setImageBitmap(bitmap);
-                else
-                    imageView.setImageResource(defId);
+                setBitmap(imageView,key,bitmap,defId);
             }
         });
-        if(bitmap!=null&&imageView.getTag(TAG_KEY).equals(key)){
-            imageView.setImageBitmap(bitmap);
+        setBitmap(imageView,key,bitmap,defId);
+    }
+
+    private static void setBitmap(ImageView imageView, String key, Bitmap bitmap, @DrawableRes int defId){
+        if(bitmap!=null){
+            if(key.equals(imageView.getTag(TAG_KEY))) {
+                imageView.setImageBitmap(bitmap);
+            }
         }else{
             imageView.setImageResource(defId);
         }

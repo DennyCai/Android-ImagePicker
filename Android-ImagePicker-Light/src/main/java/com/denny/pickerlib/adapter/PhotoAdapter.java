@@ -2,6 +2,7 @@ package com.denny.pickerlib.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class PhotoAdapter extends BaseListAdpater<String> {
         super(data);
     }
 
-    public void onBindViewHolder(final PhotoHolder holder, String imageFileUri,int position) {
+    public void onBindViewHolder(final PhotoHolder holder, String imageFileUri, int position) {
         ImageLoader.loadImage(imageFileUri,
                 holder.imageView, mMaxSize,
                 android.R.drawable.sym_def_app_icon);
