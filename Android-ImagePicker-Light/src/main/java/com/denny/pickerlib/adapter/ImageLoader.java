@@ -39,7 +39,7 @@ public class ImageLoader {
     }
 
     private static ExecutorService newThreadPool(){
-        int threadCount = (Runtime.getRuntime().availableProcessors()>>1)| 1 ;
+        int threadCount = Runtime.getRuntime().availableProcessors()>>1;
         return new ThreadPoolExecutor(threadCount,threadCount,0, TimeUnit.MINUTES,new StackBlockingDeque());
     }
 
