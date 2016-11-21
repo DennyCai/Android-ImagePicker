@@ -1,7 +1,6 @@
 package com.denny.pickerlib.adapter;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import com.denny.pickerlib.support.LruCache;
@@ -11,7 +10,9 @@ import android.support.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Cai on 2016/10/11.
@@ -25,7 +26,7 @@ public class ImageLoader {
     private static Handler MAIN_HANDLER;
 
     public static void init(){
-        THREAD_POLL = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()>>1);
+        THREAD_POLL = newThreadPool();
         MAIN_HANDLER = new Handler(Looper.getMainLooper());
 
         int cacheSize = (int) (Runtime.getRuntime().maxMemory()>>3);
@@ -37,9 +38,14 @@ public class ImageLoader {
         };
     }
 
+    private static ExecutorService newThreadPool(){
+        int threadCount = (Runtime.getRuntime().availableProcessors()>>1)| 1 ;
+        return new ThreadPoolExecutor(threadCount,threadCount,0, TimeUnit.MINUTES,new StackBlockingDeque());
+    }
+
     public static void reset(){
         THREAD_POLL.shutdownNow();
-        THREAD_POLL = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()>>1);
+        THREAD_POLL = newThreadPool();
     }
 
     public static void destroy(){
@@ -102,4 +108,19 @@ public class ImageLoader {
         void onLoaded(Bitmap bitmap);
     }
 
+    /**
+     * LIFO模式
+     */
+    public static class StackBlockingDeque extends LinkedBlockingDeque<Runnable> {
+
+        @Override
+        public boolean offer(Runnable o) {
+            return super.offerFirst(o);
+        }
+
+        @Override
+        public Runnable remove() {
+            return super.removeFirst();
+        }
+    }
 }

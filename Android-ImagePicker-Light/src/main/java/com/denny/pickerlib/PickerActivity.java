@@ -155,11 +155,15 @@ public class PickerActivity extends BaseActivity {
 
     private String[] getPickImages() {
         SparseBooleanArray array = mPhotoWall.getCheckedItemPositions();
-        String[] photos = new String[array.size()];
-        for (int i = 0; i < photos.length; i++) {
-            photos[i] = mAdapter.getItem(array.keyAt(i));
+        List<String> photos = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            if(array.valueAt(i)) {
+                photos.add(mAdapter.getItem(array.keyAt(i)));
+            }
         }
-        return photos;
+        String[] arr = new String[photos.size()];
+        photos.toArray(arr);
+        return arr;
     }
 
     private void showAlbum(View anchor) {
