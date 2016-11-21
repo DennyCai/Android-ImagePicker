@@ -12,7 +12,7 @@ Download
 --
 #### Gradle
 ```groovy
-compile 'com.dennycai:Android-ImagePicker-Light:0.7.0'
+compile 'com.dennycai:Android-ImagePicker-Light:0.7.5'
 ```
 #### Eclipse
 ![go home](https://github.com/DennyCai/Android-ImagePicker/blob/PickImage-Light/screenshot/drunk.jpg)
