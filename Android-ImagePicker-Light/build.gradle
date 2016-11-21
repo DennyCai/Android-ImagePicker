@@ -57,7 +57,7 @@ ext {
     siteUrl = 'https://github.com/DennyCai/Android-ImagePicker'
     gitUrl = 'https://github.com/DennyCai/Android-ImagePicker.git'
 
-    libraryVersion = '0.7.0'
+    libraryVersion = '0.7.5'
 
     developerId = 'dennycai'
     developerName = 'Denny Cai'
